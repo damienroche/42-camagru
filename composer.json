@@ -1,0 +1,15 @@
+{
+    "name": "githubusername/42-camagru",
+    "authors": [
+        {
+            "name": "Damien Roche",
+            "email": "damienroche@free.fr"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+          "Core\\": "core"
+      }
+    },
+    "require": {}
+}
