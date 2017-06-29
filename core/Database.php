@@ -30,7 +30,7 @@ class Database {
     return $this->pdo;
   }
 
-  public function query($request, $class) {
+  public function query($request, $class = null) {
     $req = $this->getPDO()->query($request);
 
     if (is_null($class)) {

@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class User {
+class Snapshot extends Table {
 
 }
 

@@ -1,32 +1,18 @@
 <?php
 
 define('ROOT', dirname(__DIR__));
-require ROOT . '/app/App.class.php';
+require ROOT . '/app/App.php';
 
 App::load();
-$app = App::getInstance();
+App::getInstance();
 
-$datas = App::getDb()->query("SELECT * FROM users", "App\Model\User");
-var_dump($datas);
+// $users = App::getDb()->query("SELECT * FROM users", "App\Model\User");
+// $snapshots = App::getDb()->query("SELECT * FROM snapshots", "App\Model\Snapshot");
+// var_dump($users);
+// var_dump($snapshots);
 
-// $router = App::createRouter();
-// $router->get('/', function() {
-//   echo "home";
-// });
 
-// $router->get('/images', function() {
-//   echo "toutes les images";
-// });
-
-// $router->get('/images/:id', function($id) {
-//   echo "afficher l'image " . $id ;
-// });
-
-// $router->post('/images/:id', function($id) {
-//   echo "poster pour l'image" . $id ;
-// });
-
-// $router->debug();
-// $router->run();
+$router = App::createRouter();
+require ROOT . '/app/Routes/routes.php';
 
 ?>

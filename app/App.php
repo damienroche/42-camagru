@@ -30,17 +30,18 @@ class App {
 
   public static function createRouter()
   {
+    $url = isset($_GET['url']) ? $url = $_GET['url'] : '/';
     if (self::$router === null)
-      self::$router =  new Core\Router\Router($_GET['url']);
+      self::$router =  new Core\Router\Router($url);
     return self::$router;
   }
 
   public static function load()
   {
     session_start();
-    require dirname(__DIR__) . '/app/Autoloader.class.php';
+    require dirname(__DIR__) . '/app/Autoloader.php';
     App\Autoloader::register();
-    require ROOT . '/core/Autoloader.class.php';
+    require ROOT . '/core/Autoloader.php';
     Core\Autoloader::register();
   }
 
