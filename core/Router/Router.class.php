@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Router;
-use App\Router\Route;
-use App\Router\RouterException;
+namespace Core\Router;
+use Core\Router\Route;
+use Core\Router\RouterException;
 
 class Router {
 

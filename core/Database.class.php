@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Core;
 use \PDO;
 
 
@@ -13,8 +13,7 @@ class Database {
   private $db_dsn;
   private $pdo;
 
-  public function __construct() {
-    require_once '../config/database.php';
+  public function __construct($DB_NAME, $DB_USER, $DB_PASSWORD, $DB_HOST, $DB_DSN) {
     $this->db_name = $DB_NAME;
     $this->db_user = $DB_USER;
     $this->db_pwd = $DB_PASSWORD;
@@ -33,7 +32,13 @@ class Database {
 
   public function query($request, $class) {
     $req = $this->getPDO()->query($request);
-    $datas = $req->fetchAll(PDO::FETCH_CLASS, $class);
+
+    if (is_null($class)) {
+      $datas = $req->fetchAll(PDO::FETCH_OBJ);
+    } else {
+      $datas = $req->fetchAll(PDO::FETCH_CLASS, $class);
+    }
+
     return $datas;
   }
 
