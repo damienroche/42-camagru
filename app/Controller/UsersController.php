@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Controller;
-use Core\Controller\Controller;
+use \App;
 
 class UsersController extends AppController
 {
   public function index()
   {
-
+    $users = App::getDb()->query("SELECT * FROM users", "App\Model\User");
+    $this->render('users.index', $users);
   }
 
   public function edit()
