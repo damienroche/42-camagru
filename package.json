@@ -1,0 +1,25 @@
+{
+  "name": "42-camagru",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damienroche/42-camagru.git"
+  },
+  "author": "Damien Roche <droche@student.42.fr>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damienroche/42-camagru/issues"
+  },
+  "homepage": "https://github.com/damienroche/42-camagru#readme",
+  "engines": {
+    "node": ">= 6.9.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-sass": "^3.1.0"
+  }
+}

@@ -11,6 +11,18 @@ class SnapshotsController extends AppController
     $this->render('snapshots.index', $snapshots);
   }
 
+  public function add()
+  {
+    $this->render('snapshots.add');
+
+  }
+
+  public function create()
+  {
+    $this->render('snapshots.create');
+
+  }
+
   public function edit()
   {
 
