@@ -4,10 +4,22 @@ namespace Core\Controller;
 
 class Controller
 {
-
+  /**
+   * [$viewPath description]
+   * @var string
+   */
   protected $viewPath;
+
+  /**
+   * [$layout description]
+   * @var string
+   */
   protected $layout;
 
+  /**
+   * @param string $view
+   * @param array $vars
+   */
   public function render($view, $vars = array())
   {
     ob_start();
