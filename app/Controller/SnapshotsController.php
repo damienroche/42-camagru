@@ -7,8 +7,8 @@ class SnapshotsController extends AppController
 {
   public function index()
   {
-    $snapshots = App::getDb()->query("SELECT * FROM snapshots", "App\Model\Snapshot");
-    $this->render('snapshots.index', $snapshots);
+    $snapshots = new App\Model\Snapshot();
+    $this->render('snapshots.index', $snapshots->all());
   }
 
   public function add()

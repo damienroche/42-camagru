@@ -1,0 +1,77 @@
+#filters {
+  display: flex;
+  img {
+    width: 100px;
+    height: auto;
+  }
+}
+
+#canvas {
+  visibility: hidden;
+  display: none;
+}
+
+#photo {
+  position: absolute;
+  z-index: -1;
+  &.taken {
+    z-index: 3;
+  }
+}
+
+#preview {
+  width: 640px;
+  height: 480px;
+  position: relative;
+  .filter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+    img {
+      width: 100%;
+      height: auto;
+      z-index: 2;
+    }
+  }
+  &.taken {
+    &:after {
+      animation: countdown 3s linear;
+      font-size: 30vh;
+      content: '0';
+      position: absolute;
+      top: 0;
+      left:0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+      color: white;
+      @include flex-center;
+    }
+  }
+}
+
+@keyframes countdown {
+  0% {
+    content: "3";
+    // background-color: white;
+  }
+  45% {
+    content: "2";
+  }
+  70% {
+    content: "1";
+  }
+  90% {
+    background-color: transparent;
+  }
+  95% {
+    content: "0";
+    background-color: white;
+  }
+  100% {
+    content: '';
+  }
+}

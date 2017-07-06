@@ -20,6 +20,11 @@ class UsersController extends AppController
   {
 
   }
+
+  public function create($name, $password, $email)
+  {
+
+  }
 }
 
 
