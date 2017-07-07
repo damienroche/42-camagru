@@ -11,7 +11,8 @@ $router->post('/snapshots/create', function() {
 });
 
 $router->get('/snapshots/:id', function($id) {
-  echo "afficher l'image " . $id ;
+  $controller = new \App\Controller\SnapshotsController();
+  $controller->show($id);
 });
 
 $router->get('/snapshots', function() {

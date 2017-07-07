@@ -28,9 +28,12 @@ class SnapshotsController extends AppController
 
   }
 
-  public function show()
+  public function show($id)
   {
+    $snapshots = new App\Model\Snapshot();
+    $items[] = $snapshots->getById($id);
 
+    $this->render('snapshots.show', $items);
   }
 }
 

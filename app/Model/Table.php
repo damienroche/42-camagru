@@ -21,8 +21,17 @@ class Table {
   {
     return App::getDb()->query("
       SELECT *
-      FROM " . static::getTable() ."
+      FROM " . static::getTable() . "
     ", get_called_class());
+  }
+
+  public static function getById($id)
+  {
+    return App::getDb()->prepare("
+      SELECT *
+      FROM " . static::getTable() . "
+      WHERE id = ?
+    ", [$id], get_called_class(), true);
   }
 
   public function __get($key)

@@ -1,12 +1,12 @@
 <?php
 
 echo "Snapshots.index";
-
-foreach ($vars as $snap) {
-  echo "<div>";
-  echo $snap->description;
-  echo "</div>";
-  // var_dump($snap);
-}
-
 ?>
+
+<?php foreach ($vars as $snap) : ?>
+  <div>
+    <a href="/snapshots/<?= $snap->id ?>">
+      <p><?= $snap->description ?></p>
+    </a>
+  </div>
+<?php endforeach; ?>
