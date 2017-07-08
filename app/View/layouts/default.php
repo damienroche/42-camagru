@@ -7,7 +7,12 @@
 </head>
 <body>
 
-<?= $content ?>
+  <header>
+
+  </header>
+  <main>
+    <?= $content ?>
+  </main>
 
 </body>
 </html>

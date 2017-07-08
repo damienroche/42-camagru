@@ -20,7 +20,7 @@ class Controller
    * @param string $view
    * @param array $vars
    */
-  public function render($view, $vars)
+  public function render($view, $vars = array())
   {
     ob_start();
     extract($vars);

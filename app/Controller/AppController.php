@@ -13,6 +13,15 @@ class AppController extends Controller
     $this->viewPath = ROOT . '/app/View/';
   }
 
+  protected function areset($array)
+  {
+    foreach ($array as $value) {
+      if (isset($value) == false || $value == '')
+        return false;
+    }
+    return true;
+  }
+
 }
 
 

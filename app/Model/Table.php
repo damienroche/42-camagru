@@ -7,7 +7,7 @@ class Table {
 
   protected static $table;
 
-  private static function getTable()
+  protected static function getTable()
   {
     if (static::$table === null) {
       $class_name = explode('\\', get_called_class());

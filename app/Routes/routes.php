@@ -29,6 +29,11 @@ $router->get('/users', function() {
   $controller->index();
 });
 
+$router->post('/users/create', function() {
+  $controller = new \App\Controller\UsersController();
+  $controller->create();
+});
+
 $router->get('/', function() {
   $controller = new \App\Controller\HomeController();
   $controller->index();

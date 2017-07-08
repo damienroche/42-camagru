@@ -21,7 +21,7 @@ class Database {
     $this->db_dsn = $DB_DSN;
   }
 
-  private function getPDO() {
+  public function getPDO() {
     if ($this->pdo === null) {
       $pdo = new PDO($this->db_dsn, $this->db_user, $this->db_pwd);
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
