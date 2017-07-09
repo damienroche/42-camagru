@@ -72,6 +72,16 @@ class Form
   }
 
   /**
+   * @param $for string
+   * @param $label string
+   * @return string
+   */
+  public function label($for, $label)
+  {
+    return "<label for='" . $for  . "'>". $label ."</label>";
+  }
+
+  /**
    * @param $value string
    * @return string
    */

@@ -38,7 +38,8 @@ class SnapshotsController extends AppController
   {
     $db = App::getInstance()->getDb();
     $item = $db->prepare('SELECT * FROM snapshots WHERE id = ?', [$id], null, true);
-    $this->render('snapshots.show', ['snapshot' => $item]);
+    $comments = $db->prepare('SELECT c.*, u.username FROM comments c LEFT JOIN users u ON u.id = c.user_id WHERE image_id = ?', [$id], get_called_class());
+    $this->render('snapshots.show', ['snapshot' => $item, 'comments' => $comments]);
   }
 }
 

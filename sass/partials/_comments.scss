@@ -1,0 +1,12 @@
+.commentList {
+  font-size: 13px;
+  .comment {
+    display: flex;
+    > * + *  {
+      margin-left: 5px;
+    }
+  }
+  .author {
+    font-weight: bold;
+  }
+}
