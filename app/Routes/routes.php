@@ -20,8 +20,9 @@ $router->get('/snapshots', function() {
   $controller->index();
 });
 
-$router->get('/users/:id', function($id) {
-  echo "user.show " . $id;
+$router->get('/users/:username', function($username) {
+  $controller = new \App\Controller\UsersController();
+  $controller->show($username);
 });
 
 $router->get('/users', function() {

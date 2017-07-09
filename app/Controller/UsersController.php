@@ -18,9 +18,12 @@ class UsersController extends AppController
 
   }
 
-  public function show()
+  public function show($username)
   {
-
+    //get all snapshots taken by user
+    $user = App::getDb()->prepare("SELECT * FROM users WHERE username = ?", [$username], null, true);
+    $snapshots = App::getDb()->prepare("SELECT * FROM snapshots WHERE user_id = ?", [$user->id], null);
+    $this->render('users.show', ['user' => $user, 'snapshots' => $snapshots]);
   }
 
   /**
@@ -42,12 +45,11 @@ class UsersController extends AppController
     if ($user || $email) return false;
 
     // create user
-    // check if email is valid ?
+    // @todo check if email is valid ?
     $user = new User($_POST['username'], $_POST['email'], $_POST['password']);
     $user->createUser();
 
     // send confirmation email
-    // $user->login();
     $email = new Email($_POST['email'], $_POST['username']);
     $email->send();
 

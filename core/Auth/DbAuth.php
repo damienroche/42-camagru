@@ -13,6 +13,13 @@ class DbAuth
     $this->db = $db;
   }
 
+  public function getUserId()
+  {
+    if ($this->logged())
+      return $_SESSION['id'];
+    return false;
+  }
+
   public function login($username, $password)
   {
     $user = $this->db->prepare('SELECT * FROM users WHERE username = ?', [$username], null, true);
@@ -23,6 +30,11 @@ class DbAuth
       }
     }
     return false;
+  }
+
+  public function logged()
+  {
+    return isset($_SESSION['id']);
   }
 }
 
