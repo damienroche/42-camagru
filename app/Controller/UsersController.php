@@ -3,6 +3,7 @@
 namespace App\Controller;
 use \App;
 use \App\Model\User;
+use \Core\Auth\Email;
 
 class UsersController extends AppController
 {
@@ -41,11 +42,14 @@ class UsersController extends AppController
     if ($user || $email) return false;
 
     // create user
+    // check if email is valid ?
     $user = new User($_POST['username'], $_POST['email'], $_POST['password']);
     $user->createUser();
 
-    // auto-login user
+    // send confirmation email
     // $user->login();
+    $email = new Email($_POST['email'], $_POST['username']);
+    $email->send();
 
   }
 }
