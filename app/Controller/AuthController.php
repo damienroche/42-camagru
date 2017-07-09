@@ -23,6 +23,16 @@ class AuthController extends AppController
       unset($_SESSION['auth']);
     header('Location: /');
   }
+
+  public function signupForm()
+  {
+    $this->render('auth.signup', []);
+  }
+
+  public function loginForm()
+  {
+    $this->render('auth.login', []);
+  }
 }
 
 

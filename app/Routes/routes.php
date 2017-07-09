@@ -34,6 +34,16 @@ $router->post('/users/create', function() {
   $controller->create();
 });
 
+$router->get('/login', function() {
+  $controller = new \App\Controller\AuthController();
+  $controller->loginForm();
+});
+
+$router->get('/signup', function() {
+  $controller = new \App\Controller\AuthController();
+  $controller->signupForm();
+});
+
 $router->post('/login', function() {
   $controller = new \App\Controller\AuthController();
   $controller->login();
