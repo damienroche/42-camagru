@@ -101,3 +101,11 @@ header {
     background-color: white; }
   100% {
     content: ''; } }
+
+.userSnapshots {
+  display: flex; }
+  .userSnapshots article {
+    width: 30%;
+    margin: 1%; }
+    .userSnapshots article img {
+      width: 100%; }

@@ -1,11 +1,18 @@
-<?php
+<div id="filters">
+  <div><img src="/assets/images/filters/hole.png"></div>
+  <div><img src="/assets/images/filters/glasses.png"></div>
+  <div><img src="/assets/images/filters/cat.png"></div>
+  <div><img src="/assets/images/filters/valdemara.png"></div>
+</div>
 
-echo "snapshot#add";
-
-?>
-
-<form action="/create" method="POST">
-  <input type="number" name="user_id">
-  <input type="text" name="description">
-  <input type="submit" name="submit" value="Envoyer">
-</form>
+<div id="preview">
+  <img src="http://placekitten.com/g/640/480" id="photo" alt="photo">
+  <div class="filter">
+    <img src="../assets/images/filters/hole.png" id="filter">
+  </div>
+  <video id="video"></video>
+</div>
+<button id="take">Prendre une photo</button>
+<button id="undo" disabled>Refaire</button>
+<button id="send" disabled>Envoyer</button>
+<canvas id="canvas"></canvas>

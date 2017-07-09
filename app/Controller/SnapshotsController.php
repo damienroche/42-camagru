@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use \App;
+use \Core\Auth\DbAuth;
 
 class SnapshotsController extends AppController
 {
@@ -13,7 +14,12 @@ class SnapshotsController extends AppController
 
   public function add()
   {
-    $this->render('snapshots.add');
+    $auth = new DbAuth(App::getInstance()->getDb());
+    if ($auth->logged()) {
+      $this->render('snapshots.add');
+    } else {
+      header('Location: /403');
+    }
 
   }
 
@@ -30,10 +36,9 @@ class SnapshotsController extends AppController
 
   public function show($id)
   {
-    $snapshots = new App\Model\Snapshot();
-    $items[] = $snapshots->getById($id);
-
-    $this->render('snapshots.show', $items);
+    $db = App::getInstance()->getDb();
+    $item = $db->prepare('SELECT * FROM snapshots WHERE id = ?', [$id], null, true);
+    $this->render('snapshots.show', ['snapshot' => $item]);
   }
 }
 

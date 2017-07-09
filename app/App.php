@@ -1,5 +1,7 @@
 <?php
 
+use \Core\Auth\DbAuth;
+
 class App {
 
   public $title = "Camagru";

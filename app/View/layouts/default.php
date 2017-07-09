@@ -24,4 +24,5 @@
   </main>
 
 </body>
+<script type="text/javascript" src="/assets/javascripts/main.js"></script>
 </html>

@@ -1,3 +1,3 @@
-<?php foreach($vars as $snapshot) : ?>
-  <?php echo $snapshot->description ?>
-<?php endforeach; ?>
+<?php $snapshot = $vars['snapshot'] ?>
+<?= $snapshot->description ?>
+<img src="/assets/images/snapshots/<?= $snapshot->img?>">
