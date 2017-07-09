@@ -20,7 +20,7 @@ $gray-light: #e6e6e6;
         height: auto;
       }
     }
-    .user {
+    .authorCard {
       display: flex;
       align-items: center;
       > * + * {
@@ -32,7 +32,7 @@ $gray-light: #e6e6e6;
       height: 40px;
       background-color: $gray-light;
       border-radius: 100%;
-      text-indent: -9999px;
+      @include flex-center;
     }
     .picture {
       background-color: $gray-light;

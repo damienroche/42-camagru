@@ -1,4 +1,52 @@
 header {
   background-color: white;
   padding: 1rem;
+  font-size: 2rem;
+  .headerInner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  nav,
+  .headerInner,
+  .goPhotobooth,
+  .switchOff {
+    @include flex-center;
+  }
+  [class^="icon-"], [class*=" icon-"] {
+    font-size: 1.5rem;
+  }
+  nav {
+    > a {
+      @include flex-center;
+    }
+    > * + * {
+      margin-left: 15px;
+    }
+  }
+  .goPhotobooth {
+    a {
+      @include flex-center;
+      @include anim;
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+      &:hover {
+        background: red;
+        color: white;
+      }
+    }
+  }
+  .switchOff {
+    .icon-toggle-right {
+      display: none;
+    }
+    &:hover {
+      .icon-toggle-right {
+        display: inline-block;
+      }
+      .icon-toggle-left {
+        display: none;
+      }
+    }
+  }
 }

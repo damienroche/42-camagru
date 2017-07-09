@@ -3,7 +3,9 @@
     <?php foreach ($vars['snapshots'] as $snapshot) : ?>
       <article class="snapshot">
         <section class="authorCard">
-          <span class="icon-user"></span>
+          <div class="avatar">
+            <span class="icon-user"></span>
+          </div>
           <a href="/users/<?= $snapshot->author; ?>"><?= $snapshot->author; ?></a>
         </section>
         <figure class="snapshotFigure">
