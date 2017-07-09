@@ -1,13 +1,19 @@
 body {
   font-family: 'Lato', sans-serif;
   color: #333;
-  background-color: #fafafa; }
+  background-color: #fafafa;
+  margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
 
 .logo {
   font-family: 'Berkshire Swash', cursive; }
 
 header {
-  background-color: white; }
+  background-color: white;
+  padding: 1rem; }
 
 .snapshots.wrap {
   max-width: 800px;

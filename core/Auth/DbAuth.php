@@ -16,8 +16,12 @@ class DbAuth
   public function login($username, $password)
   {
     $user = $this->db->prepare('SELECT * FROM users WHERE username = ?', [$username], null, true);
-    if ($user)
-      return ($user->passwd === hash('sha512', $password));
+    if ($user) {
+      if ($user->passwd === hash('sha512', $password)) {
+        $_SESSION['id'] = $user->id;
+        return true;
+      }
+    }
     return false;
   }
 }

@@ -19,8 +19,10 @@ class AuthController extends AppController
 
   public function logout()
   {
-    if (!empty($_SESSION['auth']))
+    if (!empty($_SESSION['id'])) {
       unset($_SESSION['auth']);
+      unset($_SESSION['id']);
+    }
     header('Location: /');
   }
 

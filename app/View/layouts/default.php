@@ -13,6 +13,7 @@
       <a href="/login">Login</a>
       <a href="/signup">Signup</a>
     <?php else : ?>
+      <a href="/users/<?= $_SESSION['auth'] ?>"><?= $_SESSION['auth'] ?></a>
       <a href="/logout">Logout</a>
     <?php endif; ?>
   </header>
