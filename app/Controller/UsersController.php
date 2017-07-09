@@ -47,7 +47,7 @@ class UsersController extends AppController
     // create user
     // @todo check if email is valid ?
     $user = new User($_POST['username'], $_POST['email'], $_POST['password']);
-    $user->createUser();
+    $user->create();
 
     // send confirmation email
     $email = new Email($_POST['email'], $_POST['username']);

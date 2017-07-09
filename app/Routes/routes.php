@@ -1,5 +1,10 @@
 <?php
 
+$router->post('/comments/add', function() {
+  $controller = new \App\Controller\CommentsController();
+  $controller->add();
+});
+
 $router->get('/snapshots/add', function() {
   $controller = new \App\Controller\SnapshotsController();
   $controller->add();

@@ -61,6 +61,17 @@ class Form
   }
 
   /**
+   * @param $name string
+   * @param $type string
+   * @param $value string
+   * @return string
+   */
+  public function hidden($name, $value)
+  {
+    return "<input type='hidden' name='" . $name  . "' value='" . $value . "'>";
+  }
+
+  /**
    * @param $value string
    * @return string
    */

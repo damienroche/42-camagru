@@ -35,7 +35,7 @@ class User extends Table {
     ", [$email], get_called_class(), true);
   }
 
-  public function createUser()
+  public function create()
   {
     $now = date("Y-m-d H:i:s");
     $req = App::getDb()->getPDO()->prepare("
