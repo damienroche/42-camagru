@@ -26,6 +26,11 @@ class AuthController extends AppController
     header('Location: /');
   }
 
+  public function logged()
+  {
+    return isset($_SESSION['id']);
+  }
+
   public function signupForm()
   {
     $this->render('auth.signup', []);
@@ -33,7 +38,10 @@ class AuthController extends AppController
 
   public function loginForm()
   {
-    $this->render('auth.login', []);
+    if ($this->logged())
+      header('Location: /');
+    else
+      $this->render('auth.login', []);
   }
 }
 
