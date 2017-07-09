@@ -2,6 +2,7 @@
 
 namespace App\Model;
 use App;
+use Core\Auth\DbAuth;
 
 class User extends Table {
 
@@ -46,9 +47,7 @@ class User extends Table {
     $req->bindParam(':passwd', $this->password);
     $req->bindParam(':created_date', $now);
     $req->execute();
-
   }
-
 }
 
 ?>

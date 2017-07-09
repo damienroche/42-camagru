@@ -42,11 +42,14 @@ class Database {
     return $datas;
   }
 
-  public function prepare($statement, $attributes, $class, $one = false)
+  public function prepare($statement, $attributes, $class = null, $one = false)
   {
     $req = $this->getPDO()->prepare($statement);
     $req->execute($attributes);
-    $req->setFetchMode(PDO::FETCH_CLASS, $class);
+    if (is_null($class))
+      $req->setFetchMode(PDO::FETCH_OBJ);
+    else
+      $req->setFetchMode(PDO::FETCH_CLASS, $class);
     if ($one) {
       $datas = $req->fetch();
     } else {

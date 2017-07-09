@@ -34,6 +34,11 @@ $router->post('/users/create', function() {
   $controller->create();
 });
 
+$router->post('/users/login', function() {
+  $controller = new \App\Controller\AuthController();
+  $controller->login();
+});
+
 $router->get('/', function() {
   $controller = new \App\Controller\HomeController();
   $controller->index();

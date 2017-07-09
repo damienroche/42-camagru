@@ -23,21 +23,30 @@ class UsersController extends AppController
   }
 
   /**
-   * Create New User in database with somes conditions
-   * @return bool
+   * Insert New user in database with somes conditions
+   * @return boolean
    */
   public function create()
   {
-    var_dump($_POST);
+    if (empty($_POST)) return ;
+
     //check if username, email and password are not empty
-    if ($this->areset([$_POST['name'], $_POST['email'], $_POST['password']]) == false) return false;
+    if ($this->areset([$_POST['username'], $_POST['email'], $_POST['password']]) == false) return false;
 
     //check if username and email are availables
-    // $user->getByUsername($_POST['name']);
+    $db = App::getInstance()->getDb();
+    $user = $db->prepare('SELECT * FROM users WHERE username = ?', [$_POST['username']], null, true);
+    $email = $db->prepare('SELECT * FROM users WHERE email = ?', [$_POST['email']], null, true);
+
+    if ($user || $email) return false;
 
     // create user
-    $user = new User($_POST['name'], $_POST['email'], $_POST['password']);
+    $user = new User($_POST['username'], $_POST['email'], $_POST['password']);
     $user->createUser();
+
+    // auto-login user
+    // $user->login();
+
   }
 }
 

@@ -45,6 +45,16 @@ class App {
     Core\Autoloader::register();
   }
 
+  public function fordidden()
+  {
+    header('HTTP/1.0 403 Forbidden');
+  }
+
+  public function notFound()
+  {
+    header('HTTP/1.0 404 Not Found');
+  }
+
 }
 
 ?>
