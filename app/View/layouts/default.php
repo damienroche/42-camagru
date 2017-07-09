@@ -11,6 +11,8 @@
 
   </header>
   <main>
+    <?php var_dump($_SESSION); ?>
+    <?php var_dump($_SERVER); ?>
     <?= $content ?>
   </main>
 

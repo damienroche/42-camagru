@@ -34,9 +34,14 @@ $router->post('/users/create', function() {
   $controller->create();
 });
 
-$router->post('/users/login', function() {
+$router->post('/login', function() {
   $controller = new \App\Controller\AuthController();
   $controller->login();
+});
+
+$router->get('/logout', function() {
+  $controller = new \App\Controller\AuthController();
+  $controller->logout();
 });
 
 $router->get('/', function() {
