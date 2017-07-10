@@ -38,6 +38,12 @@ $gray-light: #e6e6e6;
     .actionSection {
       .actions {
         font-size: 1.5rem;
+        span {
+          cursor: pointer;
+        }
+      }
+      span + span {
+        margin-left: .5rem;
       }
     }
   }

@@ -5,7 +5,7 @@
   <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Lato" rel="stylesheet">
   <link href="/assets/styles/main.css" rel="stylesheet">
 </head>
-<body>
+<body class="">
 
   <header>
     <div class="headerInner">

@@ -217,6 +217,12 @@ header + main {
   .snapshots .snapshot .actionSection .actions,
   .homeSnapshots .snapshot .actionSection .actions {
     font-size: 1.5rem; }
+    .snapshots .snapshot .actionSection .actions span,
+    .homeSnapshots .snapshot .actionSection .actions span {
+      cursor: pointer; }
+  .snapshots .snapshot .actionSection span + span,
+  .homeSnapshots .snapshot .actionSection span + span {
+    margin-left: .5rem; }
 
 .singleSnapshot article.snapshot {
   border: 1px solid #e6e6e6;

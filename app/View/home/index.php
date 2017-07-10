@@ -15,7 +15,7 @@
         </figure>
         <section class="actionSection">
           <div class="actions">
-            <span class="icon-heart"></span>
+            <span class="icon-heart js-like" data-snap="<?= $snapshot->id ?>" data-user="<?= $_SESSION['id']; ?>"></span>
             <span class="icon-comment-square"></span>
           </div>
           <div>
