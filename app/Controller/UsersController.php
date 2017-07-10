@@ -49,6 +49,8 @@ class UsersController extends AppController
     // @todo check if email is valid ?
     $user = new User($_POST['username'], $_POST['email'], $_POST['password']);
     $user->create();
+    $_SESSION['flash'] = 'thanks for register. Please check your email to activate your account';
+    header('Location: /');
 
     // send confirmation email
     // $email = new Email($_POST['email'], $_POST['username']);

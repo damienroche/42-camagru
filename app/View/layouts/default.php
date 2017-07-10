@@ -45,9 +45,11 @@
   </main>
 
   <?php if (isset($_SESSION['flash'])): ?>
-    <div class="flash">
-      <p><?= $_SESSION['flash']; ?></p>
-      <?php unset($_SESSION['flash']); ?>
+    <div class="reveal">
+      <div class="flash">
+        <p><?= $_SESSION['flash']; ?></p>
+        <?php unset($_SESSION['flash']); ?>
+      </div>
     </div>
   <?php endif; ?>
 </body>
