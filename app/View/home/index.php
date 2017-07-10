@@ -19,7 +19,7 @@
             <span class="icon-comment-square"></span>
           </div>
           <div>
-            <span>11 Like</span>
+            <span><?= $snapshot->likes_count; ?> <?= ($snapshot->likes_count > 1) ? 'Likes' : 'Like' ; ?></span>
             <span><?= $snapshot->comments_count; ?> <?= ($snapshot->comments_count > 1) ? 'Comments' : 'Comment' ; ?></span>
           </div>
 
