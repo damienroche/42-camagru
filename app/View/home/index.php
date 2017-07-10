@@ -2,40 +2,39 @@
   <div class="homeSnapshots wrap">
     <?php foreach ($vars['snapshots'] as $snapshot) : ?>
       <article class="snapshot">
-        <section class="authorCard">
-          <div class="avatar">
-            <span class="icon-user"></span>
-          </div>
-          <a href="/users/<?= $snapshot->author; ?>"><?= $snapshot->author; ?></a>
-        </section>
+        <div class="snapshot-head">
+          <section class="authorCard">
+            <div class="avatar">
+              <span class="icon-user"></span>
+            </div>
+            <a href="/users/<?= $snapshot->author; ?>"><?= $snapshot->author; ?></a>
+          </section>
+          <section class="snapshot-metas">
+            <span><?= $snapshot->likes_count; ?> <?= ($snapshot->likes_count > 1) ? 'Likes' : 'Like' ; ?></span>
+            <span><?= $snapshot->comments_count; ?> <?= ($snapshot->comments_count > 1) ? 'Comments' : 'Comment' ; ?></span>
+          </section>
+        </div>
         <figure class="snapshotFigure">
           <a href="/snapshots/<?= $snapshot->id ?>">
             <img src="/assets/images/snapshots/<?= $snapshot->img ?>">
+            <figcaption><?= $snapshot->description; ?></figcaption>
           </a>
         </figure>
-        <section class="actionSection">
-          <div class="actions">
-            <span class="icon-heart js-like" data-snap="<?= $snapshot->id ?>" data-user="<?= $_SESSION['id']; ?>"></span>
-            <span class="icon-comment-square"></span>
-          </div>
-          <div>
-            <span><?= $snapshot->likes_count; ?> <?= ($snapshot->likes_count > 1) ? 'Likes' : 'Like' ; ?></span>
-            <span><?= $snapshot->comments_count; ?> <?= ($snapshot->comments_count > 1) ? 'Comments' : 'Comment' ; ?></span>
-          </div>
-
-        </section>
-        <section class="commentSection">
+        <?php if (isset($_SESSION['id'])) : ?>
+          <span class="icon-heart js-like" data-snap="<?= $snapshot->id ?>" data-user="<?= $_SESSION['id']; ?>"></span>
+        <?php endif; ?>
+        <!-- <section class="commentSection">
           <div class="commentList">
             <?php if(isset($snapshot->description)) : ?>
               <div class="comment">
                 <div class="author"><?= $snapshot->author; ?></div>
                 <div>
-                  <a href="/snapshots/<?= $snapshot->id ?>"><?= $snapshot->description; ?></a>
+                  <a href="/snapshots/<?= $snapshot->id ?>"</a>
                 </div>
               </div>
             <?php endif; ?>
           </div>
-          <!-- <?php if (isset($_SESSION['auth'])) : ?>
+          <?php if (isset($_SESSION['auth'])) : ?>
             <div class="commentForm">
             <?php
               $comment = new Core\Builder\Form;
@@ -46,8 +45,8 @@
               echo $comment->close();
             ?>
             </div>
-          <?php endif; ?> -->
-        </section>
+          <?php endif; ?>
+        </section> -->
       </article>
     <?php endforeach; ?>
   </div

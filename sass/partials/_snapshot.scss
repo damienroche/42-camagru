@@ -10,14 +10,29 @@ $gray-light: #e6e6e6;
     border: 1px solid $gray-light;
     background-color: white;
     border-radius: 4px;
+    position: relative;
     section {
       padding: 10px;
+    }
+    .snapshot-head {
+      display: flex;
+      > * {
+        flex: 1;
+      }
     }
     .authorCard {
       display: flex;
       align-items: center;
       > * + * {
         margin-left: 10px;
+      }
+    }
+    figure {
+      figcaption {
+        @extend .u-camagruFont;
+        text-align: center;
+        padding: 1rem;
+        margin-bottom: 5px;
       }
     }
     .avatar {
@@ -32,18 +47,26 @@ $gray-light: #e6e6e6;
       min-height: 100px;
       display: block;
     }
+    .js-like {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      @include anim();
+      &:hover {
+        color: red;
+      }
+    }
     & + .snapshot {
       margin-top: 4rem;
     }
-    .actionSection {
-      .actions {
-        font-size: 1.5rem;
-        span {
-          cursor: pointer;
-        }
-      }
+    .snapshot-metas {
+      @include flex-center;
+      justify-content: flex-end;
+      font-size: 12px;
       span + span {
-        margin-left: .5rem;
+        margin-left: 1rem;
       }
     }
   }

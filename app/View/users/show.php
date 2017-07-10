@@ -1,12 +1,10 @@
 <?php $current = ($vars['user']->username == $_SESSION['auth']) ? true : false; ?>
 <div class="u-globalWrap userPage">
   <h2><?= $vars['user']->username ?></h2>
-  <p>
-    <span><?= count($vars['snapshots']); ?> </span>
-    <span class="icon-image"></span>
-  </p>
   <?php if ($current) : ?>
-    <a href="/profile/edit">Edit your profile</a>
+    <a href="/profile/edit">
+      <span class="icon-cog"></span>
+    </a>
   <?php endif; ?>
 
 
@@ -17,6 +15,11 @@
       <p>Cet utilisateur n'a pas encore pris de selfie.</p>
     <?php endif; ?>
   <?php else : ?>
+    <h3>
+      <span>Collection</span>
+      <span><?= count($vars['snapshots']); ?> </span>
+      <span class="icon-image"></span>
+    </h3>
     <div class="userSnapshots">
     <?php foreach ($vars['snapshots'] as $snapshot) : ?>
       <article>
@@ -27,4 +30,6 @@
     <?php endforeach; ?>
     </div>
   <?php endif; ?>
+  <h3>Likes</h3>
+  <h3>Following</h3>
 </div>

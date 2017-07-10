@@ -44,6 +44,12 @@
     <?= $content ?>
   </main>
 
+  <?php if (isset($_SESSION['flash'])): ?>
+    <div class="flash">
+      <p><?= $_SESSION['flash']; ?></p>
+      <?php unset($_SESSION['flash']); ?>
+    </div>
+  <?php endif; ?>
 </body>
 <script type="text/javascript" src="/assets/javascripts/main.js"></script>
 </html>
