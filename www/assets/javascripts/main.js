@@ -1,5 +1,7 @@
 (function() {
 
+  if (!document.querySelector('#video')) return;
+
   var streaming = false,
   video        = document.querySelector('#video'),
   cover        = document.querySelector('#cover'),

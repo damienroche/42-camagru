@@ -32,6 +32,7 @@ class UsersController extends AppController
    */
   public function create()
   {
+    var_dump($_POST);
     if (empty($_POST)) return ;
 
     //check if username, email and password are not empty
@@ -50,8 +51,8 @@ class UsersController extends AppController
     $user->create();
 
     // send confirmation email
-    $email = new Email($_POST['email'], $_POST['username']);
-    $email->send();
+    // $email = new Email($_POST['email'], $_POST['username']);
+    // $email->send();
 
   }
 }

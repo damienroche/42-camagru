@@ -135,6 +135,7 @@ a {
 
 header {
   background-color: white;
+  border-bottom: 1px solid #e6e6e6;
   padding: 1rem;
   font-size: 2rem; }
   header .headerInner {
@@ -213,6 +214,9 @@ header + main {
   .snapshots .snapshot + .snapshot,
   .homeSnapshots .snapshot + .snapshot {
     margin-top: 4rem; }
+  .snapshots .snapshot .actionSection .actions,
+  .homeSnapshots .snapshot .actionSection .actions {
+    font-size: 1.5rem; }
 
 .singleSnapshot article.snapshot {
   border: 1px solid #e6e6e6;
@@ -300,7 +304,8 @@ header + main {
   font-size: 3rem; }
 
 .userSnapshots {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
   .userSnapshots article {
     width: 33.33%;
     position: relative; }

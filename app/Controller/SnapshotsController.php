@@ -33,7 +33,7 @@ class SnapshotsController extends AppController
     if (substr($_POST['base64'], 0, strlen($type)) !== $type) return ;
     $snapshot = new Snapshot($_POST['base64'], $_SESSION['id'], $_POST['description']);
     $snapshot->create();
-    var_dump($snapshot);
+    header('Location: /');
 
   }
 

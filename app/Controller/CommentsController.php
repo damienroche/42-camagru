@@ -12,6 +12,7 @@ class CommentsController extends AppController
     //@todo make some check before create comment ?
     $comment = new Comment($_SESSION['id'], $_POST['token'], $_POST['content']);
     $comment->create();
+    header('Location: /');
   }
 
 

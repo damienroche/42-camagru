@@ -35,6 +35,11 @@ $gray-light: #e6e6e6;
     & + .snapshot {
       margin-top: 4rem;
     }
+    .actionSection {
+      .actions {
+        font-size: 1.5rem;
+      }
+    }
   }
 }
 
