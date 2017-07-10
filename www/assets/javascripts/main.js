@@ -11,6 +11,7 @@
   take         = document.querySelector('#take'),
   undo         = document.querySelector('#undo'),
   send         = document.querySelector('#send'),
+  imageOutput  = document.querySelector('#output'),
   width = 640,
   height = 0;
 
@@ -56,6 +57,7 @@
     canvas.getContext('2d').drawImage(filter, 0, 0, width, height);
     var data = canvas.toDataURL('image/png');
     photo.setAttribute('src', data);
+    imageOutput.value = data;
     photo.setAttribute('class', 'taken');
     undo.disabled = false;
     send.disabled = false;

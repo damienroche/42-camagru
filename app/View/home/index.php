@@ -33,7 +33,7 @@
               echo $comment->open('/comments/add', 'POST');
               echo $comment->label('content', $_SESSION['auth']);
               echo $comment->input('content', 'text', 'Add a comment...');
-              echo $comment->hidden('token', hash('md5', $snapshot->id . 'im4g3_t00k3n#io'));
+              echo $comment->hidden('token', hash('md5', strtotime($snapshot->created_date) . 'im4g3_t00k3n#io'));
               echo $comment->submit();
               echo $comment->close();
             ?>

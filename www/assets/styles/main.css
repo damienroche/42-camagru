@@ -4,6 +4,12 @@ body {
   background-color: #fafafa;
   margin: 0; }
 
+figure {
+  margin: 0; }
+  figure img {
+    width: 100%;
+    height: auto; }
+
 a {
   color: inherit;
   text-decoration: none; }
@@ -167,6 +173,9 @@ header {
   header .switchOff:hover .icon-toggle-left {
     display: none; }
 
+header + main {
+  margin-top: 4rem; }
+
 .snapshots.wrap,
 .homeSnapshots.wrap {
   max-width: 500px;
@@ -180,13 +189,6 @@ header {
   .snapshots .snapshot section,
   .homeSnapshots .snapshot section {
     padding: 10px; }
-  .snapshots .snapshot figure,
-  .homeSnapshots .snapshot figure {
-    margin: 0; }
-    .snapshots .snapshot figure img,
-    .homeSnapshots .snapshot figure img {
-      width: 100%;
-      height: auto; }
   .snapshots .snapshot .authorCard,
   .homeSnapshots .snapshot .authorCard {
     display: flex;
@@ -208,10 +210,21 @@ header {
     background-color: #e6e6e6;
     min-height: 100px;
     display: block; }
+  .snapshots .snapshot + .snapshot,
+  .homeSnapshots .snapshot + .snapshot {
+    margin-top: 4rem; }
 
-.snapshots .snapshot + .snapshot,
-.homeSnapshots .snapshot + .snapshot {
-  margin-top: 20px; }
+.singleSnapshot article.snapshot {
+  border: 1px solid #e6e6e6;
+  display: flex; }
+  .singleSnapshot article.snapshot figure {
+    width: 70%; }
+  .singleSnapshot article.snapshot .sidePanel {
+    width: 30%; }
+
+.singleSnapshot .sidePanel {
+  background-color: white;
+  padding: 1rem; }
 
 .commentList {
   font-size: 13px; }
@@ -283,13 +296,30 @@ header {
   100% {
     content: ''; } }
 
+.userPage h2 {
+  font-size: 3rem; }
+
 .userSnapshots {
   display: flex; }
   .userSnapshots article {
-    width: 30%;
-    margin: 1%; }
+    width: 33.33%;
+    position: relative; }
     .userSnapshots article img {
       width: 100%; }
+    .userSnapshots article > a {
+      display: block; }
+      .userSnapshots article > a:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: red;
+        opacity: 0;
+        transition: all .2s; }
+      .userSnapshots article > a:hover:after {
+        opacity: 0.8; }
 
 .u-flex1 {
   flex: 1; }
@@ -297,5 +327,9 @@ header {
 .u-textCentered {
   text-align: center; }
 
-.u-camagruFont {
+.u-camagruFont, .userPage h2 {
   font-family: 'Berkshire Swash', cursive; }
+
+.u-globalWrap {
+  max-width: 1000px;
+  margin: 0 auto; }

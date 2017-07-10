@@ -66,9 +66,11 @@ class Form
    * @param $value string
    * @return string
    */
-  public function hidden($name, $value)
+  public function hidden($name, $value, $id = '')
   {
-    return "<input type='hidden' name='" . $name  . "' value='" . $value . "'>";
+    if (empty($id))
+      $id = $name;
+    return "<input type='hidden' name='" . $name  . "' value='" . $value . "' id='". $id ."'>";
   }
 
   /**
@@ -85,8 +87,10 @@ class Form
    * @param $value string
    * @return string
    */
-  public function submit($value = 'OK')
+  public function submit($value = 'OK', $id = '')
   {
+    if (!empty($id))
+      return "<input type='submit' value='". $value ."' id='". $id ."'>";
     return "<input type='submit' value='". $value ."'>";
   }
 

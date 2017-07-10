@@ -13,13 +13,6 @@ $gray-light: #e6e6e6;
     section {
       padding: 10px;
     }
-    figure {
-      margin: 0;
-      img {
-        width: 100%;
-        height: auto;
-      }
-    }
     .authorCard {
       display: flex;
       align-items: center;
@@ -39,9 +32,26 @@ $gray-light: #e6e6e6;
       min-height: 100px;
       display: block;
     }
+    & + .snapshot {
+      margin-top: 4rem;
+    }
   }
-  .snapshot + .snapshot {
-    margin-top: 20px;
+}
+
+.singleSnapshot {
+  article.snapshot {
+    border: 1px solid $gray-light;
+    display: flex;
+    figure {
+      width: 70%;
+    }
+    .sidePanel {
+      width: 30%;
+    }
+  }
+  .sidePanel {
+    background-color: white;
+    padding: 1rem;
   }
 }
 

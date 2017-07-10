@@ -3,6 +3,7 @@
 namespace App\Controller;
 use \App;
 use \Core\Auth\DbAuth;
+use \App\Model\Snapshot;
 
 class SnapshotsController extends AppController
 {
@@ -25,7 +26,14 @@ class SnapshotsController extends AppController
 
   public function create()
   {
-    $this->render('snapshots.create');
+    var_dump($_POST);
+    // @todo -> check if image, user_id & description exists
+    // check if image is a real image
+    $type = "data:image/png;base64,";
+    if (substr($_POST['base64'], 0, strlen($type)) !== $type) return ;
+    $snapshot = new Snapshot($_POST['base64'], $_SESSION['id'], $_POST['description']);
+    $snapshot->create();
+    var_dump($snapshot);
 
   }
 
@@ -37,7 +45,7 @@ class SnapshotsController extends AppController
   public function show($id)
   {
     $db = App::getInstance()->getDb();
-    $item = $db->prepare('SELECT * FROM snapshots WHERE id = ?', [$id], null, true);
+    $item = $db->prepare('SELECT s.*, u.username as author FROM snapshots s LEFT JOIN users u ON u.id = s.user_id WHERE s.id = ?', [$id], null, true);
     $comments = $db->prepare('SELECT c.*, u.username FROM comments c LEFT JOIN users u ON u.id = c.user_id WHERE image_id = ?', [$id], get_called_class());
     $this->render('snapshots.show', ['snapshot' => $item, 'comments' => $comments]);
   }

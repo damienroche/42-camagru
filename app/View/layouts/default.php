@@ -23,7 +23,7 @@
       <?php else : ?>
         <div class="goPhotobooth u-flex1 u-textCentered">
           <a href="/snapshots/add" title="Take a snapshot !">
-            <span class="icon-video"></span>
+            <span class="icon-camera"></span>
           </a>
         </div>
         <nav>

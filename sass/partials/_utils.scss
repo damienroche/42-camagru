@@ -9,3 +9,7 @@
 .u-camagruFont {
   font-family: 'Berkshire Swash', cursive;
 }
+
+.u-globalWrap {
+  @include globalWrap();
+}
