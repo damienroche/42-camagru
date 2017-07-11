@@ -36,7 +36,10 @@ class UsersController extends AppController
     if (empty($_POST)) return ;
 
     //check if username, email and password are not empty
-    if ($this->areset([$_POST['username'], $_POST['email'], $_POST['password']]) == false) return false;
+    if ($this->areset([$_POST['username'], $_POST['email'], $_POST['password']]) == false) {
+      $_SESSION['flash'] = 'Please, fill all required fields';
+      header('Location: '. $_SERVER['HTTP_REFERER']);
+    }
 
     //check if username and email are availables
     $db = App::getInstance()->getDb();

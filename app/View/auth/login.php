@@ -2,7 +2,7 @@
   <h2>Login</h2>
   <?php
   $form = new Core\Builder\Form($_POST);
-  echo $form->open('/login', 'POST');
+  echo $form->open('/login', 'POST', 'authForms');
   echo $form->input('username', 'text', 'Username');
   echo $form->input('password', 'password');
   echo $form->submit();

@@ -1,10 +1,13 @@
 (function() {
 
   var ajaxLikes = document.getElementsByClassName('js-like');
+  var form = document.getElementsByClassName('authForms');
 
-  if (ajaxLikes.length > 0) {
+  if (ajaxLikes.length > 0)
     toggleLike(ajaxLikes);
-  }
+
+  if (form.length > 0)
+    checkFormValidations(form[0]);
 
   if (document.querySelector('#video'))
     loadPhotobooth();
@@ -104,6 +107,16 @@
         var snap = event.target.getAttribute('data-snap');
         var user = event.target.getAttribute('data-user');
         console.log(snap, user);
+      }
+    }, false);
+  }
+
+  function checkFormValidations(form) {
+    form.addEventListener('submit', function(event) {
+      var requiredFields = document.getElementsByClassName('required');
+      for (var i = requiredFields.length - 1; i >= 0; i--) {
+        if (requiredFields[i].lastChild.value == '')
+          event.preventDefault();
       }
     }, false);
   }

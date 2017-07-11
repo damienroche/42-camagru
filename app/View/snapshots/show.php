@@ -1,3 +1,8 @@
+<?php $current = false; ?>
+<?php if (isset($_SESSION['auth'])) : ?>
+<?php if ($vars['snapshot']->author == $_SESSION['auth']) { $current = true; } ?>
+<?php endif; ?>
+
 <div class="singleSnapshot u-globalWrap">
   <article class="snapshot">
     <?php $snapshot = $vars['snapshot']; ?>
@@ -7,6 +12,14 @@
     <div class="sidePanel">
       <?= $snapshot->author ?>
       <?= $snapshot->description ?>
+      <?php if ($current) : ?>
+        <div class="snapshot-controls">
+          <span class="icon-more"></span>
+          <ul>
+            <li>Supprimer</li>
+          </ul>
+        </div>
+      <?php endif; ?>
 
       <?php $comments = $vars['comments'] ?>
       <?php if ($comments) : ?>

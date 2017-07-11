@@ -1,4 +1,7 @@
-<?php $current = ($vars['user']->username == $_SESSION['auth']) ? true : false; ?>
+<?php $current = false; ?>
+<?php if (isset($_SESSION['auth'])) : ?>
+<?php if ($vars['user']->username == $_SESSION['auth']) { $current = true; } ?>
+<?php endif; ?>
 <div class="u-globalWrap userPage">
   <h2><?= $vars['user']->username ?></h2>
   <?php if ($current) : ?>

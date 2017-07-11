@@ -27,9 +27,12 @@ class Form
    * @param $method string Expect GET or POST (GET by default)
    * @return string Open html form with action and method
    */
-  public function open($action = '', $method = 'GET')
+  public function open($action = '', $method = 'GET', $class = '')
   {
-    return "<form action='". $action ."' method='". $method ."'>";
+    if (empty($class))
+      return "<form action='". $action ."' method='". $method ."'>";
+    else
+      return "<form action='". $action ."' method='". $method ."' class='". $class ."'>";
   }
 
   /**

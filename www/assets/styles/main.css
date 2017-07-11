@@ -1,8 +1,12 @@
+html {
+  background-color: white; }
+
 body {
   font-family: 'Lato', sans-serif;
   color: #333;
   background-color: #fafafa;
-  margin: 0; }
+  margin: 0;
+  min-height: 100vh; }
 
 figure {
   margin: 0; }
@@ -250,7 +254,8 @@ main {
     font-size: 12px; }
     .snapshots .snapshot .snapshot-metas span + span,
     .homeSnapshots .snapshot .snapshot-metas span + span {
-      margin-left: 1rem; }
+      margin-left: 1rem;
+      user-select: none; }
 
 .singleSnapshot article.snapshot {
   border: 1px solid #e6e6e6;
@@ -373,6 +378,34 @@ main {
   justify-content: center; }
   .reveal .flash {
     max-width: 500px; }
+
+.authForms {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  padding: 1rem; }
+  .authForms label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f9c3 !important;
+    margin-bottom: 1px; }
+    .authForms label span {
+      padding: 1rem; }
+      .authForms label span + input {
+        padding: 1rem 1rem 1rem 0; }
+    .authForms label input {
+      flex: 1; }
+  .authForms input {
+    border: none;
+    background-color: transparent; }
+    .authForms input:focus {
+      outline: none; }
+    .authForms input[type="submit"] {
+      background-color: #f5f9c3;
+      padding: 1rem; }
 
 .flash {
   border: 1px solid #e6e6e6;

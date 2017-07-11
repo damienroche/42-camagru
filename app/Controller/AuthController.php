@@ -11,10 +11,12 @@ class AuthController extends AppController
     $auth = new DbAuth(App::getInstance()->getDb());
     if ($auth->login($_POST['username'], $_POST['password'])) {
       $_SESSION['auth'] = $_POST['username'];
-      header('Location: /');
+      header('Location: '. $_SERVER['HTTP_REFERER']);
     }
-    else
-      die ('pas connecté');
+    else {
+      $_SESSION['flash'] = 'Incorrect credentials';
+      header('Location: '. $_SERVER['HTTP_REFERER']);
+    }
   }
 
   public function logout()
@@ -33,7 +35,10 @@ class AuthController extends AppController
 
   public function signupForm()
   {
-    $this->render('auth.signup', []);
+    if ($this->logged())
+      header('Location: /');
+    else
+      $this->render('auth.signup', []);
   }
 
   public function loginForm()
