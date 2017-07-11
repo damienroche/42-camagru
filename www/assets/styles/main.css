@@ -390,7 +390,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5f9c3 !important;
+    background-color: #f7f7f7 !important;
     margin-bottom: 1px; }
     .authForms label span {
       padding: 1rem; }
@@ -404,7 +404,7 @@ main {
     .authForms input:focus {
       outline: none; }
     .authForms input[type="submit"] {
-      background-color: #f5f9c3;
+      background-color: #f7f7f7;
       padding: 1rem; }
 
 .flash {

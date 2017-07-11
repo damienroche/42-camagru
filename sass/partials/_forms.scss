@@ -7,7 +7,7 @@
   padding: 1rem;
   label {
     @include flex-center;
-    background-color: #f5f9c3 !important;
+    background-color: #f7f7f7 !important;
     span {
       padding: 1rem;
       & + input {
@@ -26,7 +26,7 @@
       outline: none;
     }
     &[type="submit"] {
-      background-color: #f5f9c3;
+      background-color: #f7f7f7;
       padding: 1rem;
     }
   }
