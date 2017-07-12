@@ -5,8 +5,19 @@ use App;
 
 class ORM extends Table {
 
+  private $_instance;
+  private $db;
+
   public function __construct()
   {
+    $db = App::getDb();
+  }
+
+  public static function getInstance()
+  {
+    if (is_null(self::$_instance))
+      self::$_instance = new ORM();
+    return self::$_instance;
   }
 
 
@@ -18,7 +29,7 @@ class ORM extends Table {
 
   private function deleteSnapshot($token, $id)
   {
-    $req = App::getDb()->getPDO()->prepare("
+    $req = $this->db->getPDO()->prepare("
       DELETE FROM snapshots
       WHERE id = :id AND token = :token;
     ");
@@ -29,7 +40,7 @@ class ORM extends Table {
 
   private function deleteSnapshotComments($snap_id)
   {
-    $req = App::getDb()->getPDO()->prepare("
+    $req = $this->db->getPDO()->prepare("
       DELETE FROM comments WHERE image_id = :snap_id
     ");
     $req->bindParam(':snap_id', $snap_id);
