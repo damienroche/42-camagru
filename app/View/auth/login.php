@@ -10,8 +10,8 @@
   echo $form->input('password', 'password', 'Password');
   echo "</label>";
   echo $form->submit();
+  echo "<a href='/recover'>Lost password ?</a>";
   echo $form->close();
   ?>
 
-  <a href="/recover">Lost password ?</a>
 </div>

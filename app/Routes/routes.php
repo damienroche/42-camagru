@@ -15,6 +15,11 @@ $router->post('/snapshots/create', function() {
   $controller->create();
 });
 
+$router->post('/snapshots/delete', function() {
+  $controller = new \App\Controller\SnapshotsController();
+  $controller->delete();
+});
+
 $router->get('/snapshots/:id', function($id) {
   $controller = new \App\Controller\SnapshotsController();
   $controller->show($id);

@@ -16,7 +16,11 @@
         <div class="snapshot-controls">
           <span class="icon-more"></span>
           <ul>
-            <li>Supprimer</li>
+            <form method="POST" action="/snapshots/delete">
+              <input type="hidden" name="token" value="<?= $snapshot->token; ?>">
+              <input type="hidden" name="id" value="<?= $snapshot->id; ?>">
+              <input type="submit" value="Supprimer">
+            </form>
           </ul>
         </div>
       <?php endif; ?>

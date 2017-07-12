@@ -34,7 +34,24 @@ class SnapshotsController extends AppController
     $snapshot = new Snapshot($_POST['base64'], $_SESSION['id'], $_POST['description']);
     $snapshot->create();
     header('Location: /');
+  }
 
+  public function delete()
+  {
+    var_dump($_POST);
+    $req = App::getDb()->getPDO()->prepare("
+      DELETE FROM snapshots
+      WHERE id = :id AND token = :token
+    ");
+    $req->bindParam(':id', $_POST['id']);
+    $req->bindParam(':token', $_POST['token']);
+    $req->execute();
+
+    $req = App::getDb()->getPDO()->prepare("
+      DELETE FROM comments WHERE image_id = :snap_id
+    ");
+    $req->bindParam(':snap_id', $_POST['id']);
+    $req->execute();
   }
 
   public function edit()
