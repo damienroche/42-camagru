@@ -4,6 +4,7 @@ namespace App\Controller;
 use \App;
 use \Core\Auth\DbAuth;
 use \App\Model\Snapshot;
+use \App\Model\ORM;
 
 class SnapshotsController extends AppController
 {
@@ -39,19 +40,10 @@ class SnapshotsController extends AppController
   public function delete()
   {
     var_dump($_POST);
-    $req = App::getDb()->getPDO()->prepare("
-      DELETE FROM snapshots
-      WHERE id = :id AND token = :token
-    ");
-    $req->bindParam(':id', $_POST['id']);
-    $req->bindParam(':token', $_POST['token']);
-    $req->execute();
+    $ORM = new ORM();
+    $ORM->deleteSnapshotRelations($_POST['token'], $_POST['id']);
+    $this->deleteImage($_POST['token']);
 
-    $req = App::getDb()->getPDO()->prepare("
-      DELETE FROM comments WHERE image_id = :snap_id
-    ");
-    $req->bindParam(':snap_id', $_POST['id']);
-    $req->execute();
   }
 
   public function edit()
@@ -63,8 +55,15 @@ class SnapshotsController extends AppController
   {
     $db = App::getInstance()->getDb();
     $item = $db->prepare('SELECT s.*, u.username as author FROM snapshots s LEFT JOIN users u ON u.id = s.user_id WHERE s.id = ?', [$id], null, true);
+    if (!$item)
+      return App::notFound();
     $comments = $db->prepare('SELECT c.*, u.username FROM comments c LEFT JOIN users u ON u.id = c.user_id WHERE image_id = ?', [$id], get_called_class());
     $this->render('snapshots.show', ['snapshot' => $item, 'comments' => $comments]);
+  }
+
+  private function deleteImage($token)
+  {
+
   }
 }
 
