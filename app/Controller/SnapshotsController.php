@@ -4,7 +4,6 @@ namespace App\Controller;
 use \App;
 use \Core\Auth\DbAuth;
 use \App\Model\Snapshot;
-use \App\Model\ORM;
 
 class SnapshotsController extends AppController
 {
@@ -39,9 +38,8 @@ class SnapshotsController extends AppController
 
   public function delete()
   {
-    var_dump($_POST);
-    $ORM = new ORM();
-    $ORM->deleteSnapshotRelations($_POST['token'], $_POST['id']);
+    // @todo -> check errors & empty keys
+    $this->orm->deleteSnapshotRelations($_POST['token'], $_POST['id']);
     $this->deleteImage($_POST['token']);
 
   }

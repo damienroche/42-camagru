@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Model;
+namespace App;
 use App;
 
-class ORM extends Table {
+class ORM {
 
-  private $_instance;
+  private static $_instance;
   private $db;
 
   public function __construct()
